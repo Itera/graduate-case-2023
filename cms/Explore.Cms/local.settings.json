@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "CosmosDB:DatabaseName": "explore"
+  },
+  "ConnectionStrings": {
+    "CosmosDB": "mongodb://cosmos-exploreitera-dev-westeurope-001:COSc2ZYBR5fH7MqHypcId7SKZZh37OExGn1MrQqQcrGlKpANEmsF0oVaiBFIppzyHPRktDTORRLPACDbGH3iTg==@cosmos-exploreitera-dev-westeurope-001.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmos-exploreitera-dev-westeurope-001@"
+  }
+}
