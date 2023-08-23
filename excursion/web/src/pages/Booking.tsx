@@ -46,14 +46,8 @@ export default function Simple() {
               fontWeight={600}
               fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
               color={'#FFB46D'}>
-              RIB TRIP
+              Book Your RIB Trip!
             </Heading>
-            <Text
-              color={'white'}
-              fontWeight={300}
-              fontSize={'2xl'}>
-              1000 NOK Adult / 500 NOK Child
-            </Text>
           </Box>
 
           <Stack
@@ -67,35 +61,10 @@ export default function Simple() {
                 color={'#FFB46D'}
                 fontSize={'2xl'}
                 fontWeight={'300'}>
-                Embark on an arctic adventure!
+                Select Date
               </Text>
-              <Text fontSize={'lg'} color={'white'}>
-                Join our thrilling RIB boat excursion.
-              </Text>
+              
             </VStack>
-            {/* <Box>
-              <Text
-                fontSize={{ base: '16px', lg: '18px' }}
-                color={useColorModeValue('yellow.500', 'yellow.300')}
-                fontWeight={'500'}
-                textTransform={'uppercase'}
-                mb={'4'}>
-                Features
-              </Text>
-
-              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                <List spacing={2}>
-                  <ListItem>Chronograph</ListItem>
-                  <ListItem>Master Chronometer Certified</ListItem>{' '}
-                  <ListItem>Tachymeter</ListItem>
-                </List>
-                <List spacing={2}>
-                  <ListItem>Anti‑magnetic</ListItem>
-                  <ListItem>Chronometer</ListItem>
-                  <ListItem>Small seconds</ListItem>
-                </List>
-              </SimpleGrid>
-            </Box> */}
             <Box>
               <Text
                 fontSize={{ base: '16px', lg: '18px' }}
