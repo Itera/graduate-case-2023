@@ -51,7 +51,7 @@ public static class HttpRequestHelpers
         };
     }
 
-    private static async Task<T> GetJsonBody<T>(HttpRequest req) where T : new()
+    public static async Task<T> GetJsonBody<T>(HttpRequest req) where T : new()
     {
         return JsonSerializer.Deserialize<T>(await req.ReadAsStringAsync(), new JsonSerializerOptions()
         {

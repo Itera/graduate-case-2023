@@ -9,3 +9,8 @@ public class GuestResponse : Entity
     public string Email { get; set; } = string.Empty;
     public string RoomId { get; set; } = string.Empty;
 }
+
+
+
+
+
