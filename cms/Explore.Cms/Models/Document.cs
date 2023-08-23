@@ -6,6 +6,6 @@ public class Document : IDocument
 {
     [BsonId]
     public Guid Id { get; set; } = Guid.Empty;
-    [BsonElement("createdAt")] public DateTime CreatedAt => DateTime.Now;
+    [BsonElement("createdAt")] public DateTime CreatedAt {get; set; } = DateTime.Now;
     [BsonElement("updatedAt")] public DateTime UpdatedAt { get; set; } = DateTime.Now;
 }
