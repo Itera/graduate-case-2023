@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
   Box,
@@ -14,18 +14,20 @@ import {
   SimpleGrid,
   StackDivider,
   useColorModeValue,
-  VisuallyHidden,
-  List,
-  ListItem,
-} from '@chakra-ui/react'
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea
+} from '@chakra-ui/react';
 
 export default function Simple() {
   return (
-    <Container maxW={'7xl'} minW={"100%"} backgroundColor={'#091E3B'}>
+    <Container maxW={'7xl'} minW={'100%'} backgroundColor={'#091E3B'}>
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: 8, md: 10 }}
-        py={{ base: 18, md: 24 }}>
+        py={{ base: 18, md: 24 }}
+      >
         <Flex>
           <Image
             rounded={'md'}
@@ -39,57 +41,58 @@ export default function Simple() {
             h={{ base: '100%', sm: '400px', lg: '500px' }}
           />
         </Flex>
-        <Stack spacing={{ base: 6, md: 10 }}>
+        <Stack
+          spacing={{ base: 6, md: 10 }}
+          divider={
+            <StackDivider
+              borderColor={useColorModeValue('gray.200', 'gray.600')}
+            />
+          }
+        >
           <Box as={'header'}>
             <Heading
               lineHeight={1.1}
               fontWeight={600}
               fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
-              color={'#FFB46D'}>
+              color={'#FFB46D'}
+            >
               Book Your RIB Trip!
             </Heading>
           </Box>
 
-          <Stack
-            spacing={{ base: 4, sm: 6 }}
-            direction={'column'}
-            divider={
-              <StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />
-            }>
+          <Stack spacing={{ base: 4, sm: 6 }} direction={'column'}>
             <VStack spacing={{ base: 4, sm: 6 }}>
-              <Text
-                color={'#FFB46D'}
-                fontSize={'2xl'}
-                fontWeight={'300'}>
-                Select Date
-              </Text>
-              
+              <FormControl>
+                <FormLabel
+                  htmlFor="date"
+                  fontWeight={'normal'}
+                  color={'#FFB46D'}
+                >
+                  Select Date
+                </FormLabel>
+                <Input
+                  placeholder="Select Date"
+                  size="md"
+                  type="date"
+                  backgroundColor={'white'}
+                />
+              </FormControl>
             </VStack>
-            <Box>
-              <Text
-                fontSize={{ base: '16px', lg: '18px' }}
-                color={'#FFB46D'}
-                fontWeight={'500'}
-                textTransform={'uppercase'}
-                mb={'4'}>
-                Packing List
-              </Text>
-
-              <List spacing={2}> 
-                <ListItem color={'white'}>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Lunch
-                  </Text>{' '}
-                  {/* 20 mm */}
-                </ListItem>
-                <ListItem color={'white'}>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Something to drink
-                  </Text>{' '}
-                  {/* leather strap */}
-                </ListItem>
-              </List>
-            </Box>
+            <VStack>
+              <FormControl>
+                <FormLabel
+                  htmlFor="info"
+                  fontWeight={'normal'}
+                  color={'#FFB46D'}
+                >
+                  Additional Information
+                </FormLabel>
+                <Textarea
+                  placeholder="Any additional information? Please let us know."
+                  backgroundColor="white"
+                />
+              </FormControl>
+            </VStack>
           </Stack>
 
           <Button
@@ -103,12 +106,13 @@ export default function Simple() {
             textTransform={'uppercase'}
             _hover={{
               transform: 'translateY(2px)',
-              boxShadow: 'lg',
-            }}>
+              boxShadow: 'lg'
+            }}
+          >
             BOOK HERE
           </Button>
         </Stack>
       </SimpleGrid>
     </Container>
-  )
+  );
 }
