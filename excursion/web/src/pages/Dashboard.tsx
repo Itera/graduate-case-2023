@@ -18,11 +18,10 @@ import {
   List,
   ListItem,
 } from '@chakra-ui/react'
-import { MdLocalShipping } from 'react-icons/md'
 
 export default function Simple() {
   return (
-    <Container maxW={'7xl'}>
+    <Container maxW={'7xl'} minW={"100%"} backgroundColor={'#091E3B'}>
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: 8, md: 10 }}
@@ -50,10 +49,10 @@ export default function Simple() {
               RIB TRIP
             </Heading>
             <Text
-              color={useColorModeValue('gray.900', 'gray.400')}
+              color={'white'}
               fontWeight={300}
               fontSize={'2xl'}>
-              $350.00 USD
+              1000 NOK Adult / 500 NOK Child
             </Text>
           </Box>
 
@@ -65,19 +64,16 @@ export default function Simple() {
             }>
             <VStack spacing={{ base: 4, sm: 6 }}>
               <Text
-                color={useColorModeValue('gray.500', 'gray.400')}
+                color={'#FFB46D'}
                 fontSize={'2xl'}
                 fontWeight={'300'}>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                eirmod tempor invidunt ut labore
+                Embark on an arctic adventure!
               </Text>
-              <Text fontSize={'lg'}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid amet
-                at delectus doloribus dolorum expedita hic, ipsum maxime modi nam officiis
-                porro, quae, quisquam quos reprehenderit velit? Natus, totam.
+              <Text fontSize={'lg'} color={'white'}>
+                Join our thrilling RIB boat excursion.
               </Text>
             </VStack>
-            <Box>
+            {/* <Box>
               <Text
                 fontSize={{ base: '16px', lg: '18px' }}
                 color={useColorModeValue('yellow.500', 'yellow.300')}
@@ -99,60 +95,29 @@ export default function Simple() {
                   <ListItem>Small seconds</ListItem>
                 </List>
               </SimpleGrid>
-            </Box>
+            </Box> */}
             <Box>
               <Text
                 fontSize={{ base: '16px', lg: '18px' }}
-                color={useColorModeValue('yellow.500', 'yellow.300')}
+                color={'#FFB46D'}
                 fontWeight={'500'}
                 textTransform={'uppercase'}
                 mb={'4'}>
-                Product Details
+                Packing List
               </Text>
 
-              <List spacing={2}>
-                <ListItem>
+              <List spacing={2}> 
+                <ListItem color={'white'}>
                   <Text as={'span'} fontWeight={'bold'}>
-                    Between lugs:
+                    Lunch
                   </Text>{' '}
-                  20 mm
+                  {/* 20 mm */}
                 </ListItem>
-                <ListItem>
+                <ListItem color={'white'}>
                   <Text as={'span'} fontWeight={'bold'}>
-                    Bracelet:
+                    Something to drink
                   </Text>{' '}
-                  leather strap
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Case:
-                  </Text>{' '}
-                  Steel
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Case diameter:
-                  </Text>{' '}
-                  42 mm
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Dial color:
-                  </Text>{' '}
-                  Black
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Crystal:
-                  </Text>{' '}
-                  Domed, scratch‑resistant sapphire crystal with anti‑reflective treatment
-                  inside
-                </ListItem>
-                <ListItem>
-                  <Text as={'span'} fontWeight={'bold'}>
-                    Water resistance:
-                  </Text>{' '}
-                  5 bar (50 metres / 167 feet){' '}
+                  {/* leather strap */}
                 </ListItem>
               </List>
             </Box>
@@ -171,13 +136,8 @@ export default function Simple() {
               transform: 'translateY(2px)',
               boxShadow: 'lg',
             }}>
-            Add to cart
+            BOOK HERE
           </Button>
-
-          <Stack direction="row" alignItems="center" justifyContent={'center'}>
-            <MdLocalShipping />
-            <Text>2-3 business days delivery</Text>
-          </Stack>
         </Stack>
       </SimpleGrid>
     </Container>
