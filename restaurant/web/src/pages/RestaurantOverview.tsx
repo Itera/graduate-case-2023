@@ -9,22 +9,21 @@ import {
   Button,
   Heading,
   Link as ChakraLink,
+  HStack
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom';
-import theme from "../theme";
+import theme from '../theme';
 
 const RestaurantOverview = () => {
   return (
     <Stack
-      direction="column" 
+      direction="column"
       align="center"
       alignContent="center"
       justifyContent="center"
       backgroundColor={theme.colors['explore-light-blue'].main}
     >
-      <Box 
-        height='100%'
-      >
+      <Box height="100%">
         <ChakraLink as={ReactRouterLink} to="/restaurant">
           <Card
             p={6}
@@ -52,9 +51,16 @@ const RestaurantOverview = () => {
               </CardBody>
 
               <CardFooter>
-                <Button variant="outline" color="#FFB46D">
-                  Book
-                </Button>
+                <HStack>
+                  <Button variant="outline" color="#FFB46D">
+                    Book
+                  </Button>
+                  <ChakraLink as={ReactRouterLink} to="/restaurant">
+                    <Button variant="outline" color="#FFB46D">
+                      See Menu
+                    </Button>
+                  </ChakraLink>
+                </HStack>
               </CardFooter>
             </Stack>
           </Card>
@@ -87,9 +93,16 @@ const RestaurantOverview = () => {
               </CardBody>
 
               <CardFooter>
-                <Button variant="outline" color="#FFB46D">
-                  Book
-                </Button>
+                <HStack>
+                  <Button variant="outline" color="#FFB46D">
+                    Book
+                  </Button>
+                  <ChakraLink as={ReactRouterLink} to="/restaurant">
+                    <Button variant="outline" color="#FFB46D">
+                      See Menu
+                    </Button>
+                  </ChakraLink>
+                </HStack>
               </CardFooter>
             </Stack>
           </Card>
@@ -122,9 +135,16 @@ const RestaurantOverview = () => {
               </CardBody>
 
               <CardFooter>
-                <Button variant="outline" color="#FFB46D">
-                  Book
-                </Button>
+                <HStack>
+                  <Button variant="outline" color="#FFB46D">
+                    Book
+                  </Button>
+                  <ChakraLink as={ReactRouterLink} to="/restaurant">
+                    <Button variant="outline" color="#FFB46D">
+                      See Menu
+                    </Button>
+                  </ChakraLink>
+                </HStack>
               </CardFooter>
             </Stack>
           </Card>
@@ -157,9 +177,16 @@ const RestaurantOverview = () => {
               </CardBody>
 
               <CardFooter>
-                <Button variant="outline" color="#FFB46D">
-                  Book
-                </Button>
+                <HStack>
+                  <Button variant="outline" color="#FFB46D">
+                    Book
+                  </Button>
+                  <ChakraLink as={ReactRouterLink} to="/restaurant">
+                    <Button variant="outline" color="#FFB46D">
+                      See Menu
+                    </Button>
+                  </ChakraLink>
+                </HStack>
               </CardFooter>
             </Stack>
           </Card>
