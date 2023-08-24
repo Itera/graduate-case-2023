@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import useAccessToken from '../auth/useAccessToken';
 import { useGet } from '../hooks/useGet';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Navbar';
 import hydrotherapyImage from '../assets/images/hydrotherapy.png';
 import mudbathImage from '../assets/images/mudbath.png';
 import saunaImage from '../assets/images/sauna.png';
@@ -82,11 +83,12 @@ const TreatmentPage = () => {
   }, [guest, account, accessToken, mutate, isLoading]);
 
   return (
+    <div>
+    <Navbar/>
     <Flex
       width="100vw"
       height="100vh"
       alignContent="center"
-      justifyContent="center"
       flexDirection="column"
       backgroundColor="#f0f0f0"
     >
@@ -360,6 +362,7 @@ const TreatmentPage = () => {
 
   </Box>
   </Flex>
+  </div>
   );
 };
 

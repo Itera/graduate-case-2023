@@ -4,6 +4,7 @@ import { Guest, Room } from 'cms-types';
 import { useEffect } from 'react';
 import useAccessToken from '../auth/useAccessToken';
 import { useGet } from '../hooks/useGet';
+import Navbar from '../Navbar';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -69,6 +70,8 @@ const Home = () => {
   }, [guest, account, accessToken, mutate, isLoading]);
 
   return (
+    <div>
+    <Navbar/>
     <Flex
       width="100vw"
       height="100vh"
@@ -111,6 +114,7 @@ const Home = () => {
       </Button>
       </Box>
     </Flex>
+    </div>
   );
 };
 
