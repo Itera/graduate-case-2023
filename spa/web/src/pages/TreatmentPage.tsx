@@ -100,13 +100,15 @@ const TreatmentPage = () => {
         </Heading>
       </Box>
       <Box m="0 auto" p={4} marginTop={4}>
-      <Accordion>
+      <Accordion allowToggle>
         <AccordionItem>
     <h2>
       <AccordionButton style={{
           backgroundImage: `url(${saunaImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          minWidth: "95vw",
+          justifyContent: "center"
         }}
         onClick={() => changeTreatment("Sauna", "Deck 11 - Wellness Deck")}>
         <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
@@ -138,14 +140,17 @@ const TreatmentPage = () => {
         <option value="24 Aug 16:30">24 Aug 16:30</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
-      p="7"
+      p="1"
       px="50px"
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}
@@ -190,6 +195,9 @@ const TreatmentPage = () => {
         <option value="24 Aug 18:00">24 Aug 18:00</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
       p="7"
@@ -197,7 +205,7 @@ const TreatmentPage = () => {
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}
@@ -244,6 +252,9 @@ const TreatmentPage = () => {
         <option value="24 Aug 17:15">24 Aug 17:15</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
       p="7"
@@ -251,7 +262,7 @@ const TreatmentPage = () => {
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}
@@ -295,6 +306,9 @@ const TreatmentPage = () => {
         <option value="24 Aug 18:00">24 Aug 18:00</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
       p="7"
@@ -302,7 +316,7 @@ const TreatmentPage = () => {
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}
@@ -346,6 +360,9 @@ const TreatmentPage = () => {
         <option value="24 Aug 18:00">24 Aug 18:00</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
       p="7"
@@ -353,7 +370,7 @@ const TreatmentPage = () => {
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}

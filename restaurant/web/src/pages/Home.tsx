@@ -1,11 +1,11 @@
 import { useAccount, useMsal } from '@azure/msal-react';
-import { Box, Button, Heading, Image, Text, VStack} from '@chakra-ui/react';
+import { Box, Button, Heading, Image, Link, Text, VStack} from '@chakra-ui/react';
 import { Guest, Room } from 'cms-types';
 import { useEffect } from 'react';
 import useAccessToken from '../auth/useAccessToken';
 import { useGet } from '../hooks/useGet';
 import theme from '../theme';
-// import { Link as ReactLink } from 'react-router-dom';
+import { Link as ReactLink } from 'react-router-dom';
 import sourceWhite from '../assets/LogoWhite.png';
 
 const Home = () => {  
@@ -93,8 +93,8 @@ const Home = () => {
         mb={6}
         >
         <VStack>
-          <Button m={3} variant='solid' colorScheme='gray'>Spa</Button>
-          <Button m={3} variant='solid' colorScheme='gray'>Restaurants</Button>
+           <Button m={3} variant='solid' colorScheme='gray'>Spa</Button>
+           <Link as={ReactLink} to='/restaurants'><Button m={3} variant='solid' colorScheme='gray'>Restaurants</Button> </Link>
           <Button m={3} variant='solid' colorScheme='gray'>Excursions</Button>
         </VStack>
       </Box>
