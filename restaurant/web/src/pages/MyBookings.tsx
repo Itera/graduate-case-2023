@@ -14,7 +14,6 @@ import {
   Th,
   Thead,
   Tr,
-  TableContainer,
 } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 import bookingsData from '../dataMocks/bookings.json';
@@ -42,9 +41,9 @@ const MyBookings = () => {
 
   return (
     <>
-      <Box width="100%" overflowX="auto">
-        <TableContainer m={8}>
-        <Table variant="striped" colorScheme="blue" pr={8}>
+      <Box width="100%" overflowX='auto'>
+
+        <Table variant="striped" colorScheme="blue" >
           <Thead>
             <Tr>
               <Th>Time</Th>
@@ -74,7 +73,7 @@ const MyBookings = () => {
             ))}
           </Tbody>
         </Table>
-        </TableContainer>
+
       </Box>
 
       <AlertDialog
@@ -96,7 +95,7 @@ const MyBookings = () => {
               <Button colorScheme="blue" ref={cancelRef} onClick={onClose}>
                 No
               </Button>
-              <Button colorScheme="red" onClick={cancelBooking} ml={3}>
+              <Button colorScheme="red" onClick={cancelBooking} ml={0}>
                 Yes
               </Button>
             </AlertDialogFooter>
