@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import theme from '../theme';
+import penguin from './thearticpenguin.png';
 
 const RestaurantOverview = () => {
   return (
@@ -38,7 +39,7 @@ const RestaurantOverview = () => {
             <Image
               objectFit="cover"
               maxW={{ base: '100%', sm: '200px' }}
-              src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+              src={penguin}
               alt="Caffe Latte"
             />
 
@@ -47,9 +48,7 @@ const RestaurantOverview = () => {
                 <Heading size="md">The Arctic Penguin</Heading>
 
                 <Text py="2">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-                  recusandae neque, velit praesentium numquam ducimus totam
-                  atque illo nam qui!
+                Step aboard our luxurious cruise ship restaurant, The Arctic Penguin, and embark on a culinary journey like no other. Nestled within the heart of the ocean, our restaurant offers a dining experience that combines the thrill of exploration with the elegance of fine cuisine. As you indulge in our delectable dishes, you'll be surrounded by breathtaking panoramic views of the open sea, creating an unforgettable atmosphere for your dining pleasure.
                 </Text>
               </CardBody>
 
@@ -58,7 +57,7 @@ const RestaurantOverview = () => {
                   <Button variant="outline" color="#FFB46D">
                     Book
                   </Button>
-                  <ChakraLink as={ReactRouterLink} to="/restaurant">
+                  <ChakraLink as={ReactRouterLink} to="/restaurant/1">
                     <Button variant="outline" color="#FFB46D">
                       See Menu
                     </Button>
@@ -80,7 +79,7 @@ const RestaurantOverview = () => {
             <Image
               objectFit="cover"
               maxW={{ base: '100%', sm: '200px' }}
-              src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+              src="https://imgix.swoop-arctic.com/SIL_5_SIL_RTD_Silver-Explorer_Dining-1.jpg?auto=format,enhance,compress&fit=crop&crop=entropy,faces,focalpoint&w=580&h=480&q=40"
               alt="Caffe Latte"
             />
 
@@ -89,9 +88,7 @@ const RestaurantOverview = () => {
                 <Heading size="md">The South Pole</Heading>
 
                 <Text py="2">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-                  recusandae neque, velit praesentium numquam ducimus totam
-                  atque illo nam qui!
+                Inspired by the rich culinary traditions of South America, Africa, Australia, and New Zealand, our talented team of chefs have meticulously crafted a menu that showcases the best of southern cuisine. From the succulent flavors of Argentinean steaks to the bold spices of African stews, each dish is a testament to the diverse flavors and cooking techniques that define these distinct cultures.
                 </Text>
               </CardBody>
 
@@ -100,7 +97,7 @@ const RestaurantOverview = () => {
                   <Button variant="outline" color="#FFB46D">
                     Book
                   </Button>
-                  <ChakraLink as={ReactRouterLink} to="/restaurant">
+                  <ChakraLink as={ReactRouterLink} to="/restaurant/1">
                     <Button variant="outline" color="#FFB46D">
                       See Menu
                     </Button>
@@ -142,7 +139,7 @@ const RestaurantOverview = () => {
                   <Button variant="outline" color="#FFB46D">
                     Book
                   </Button>
-                  <ChakraLink as={ReactRouterLink} to="/restaurant">
+                  <ChakraLink as={ReactRouterLink} to="/restaurant/1">
                     <Button variant="outline" color="#FFB46D">
                       See Menu
                     </Button>
@@ -184,7 +181,7 @@ const RestaurantOverview = () => {
                   <Button variant="outline" color="#FFB46D">
                     Book
                   </Button>
-                  <ChakraLink as={ReactRouterLink} to="/restaurant">
+                  <ChakraLink as={ReactRouterLink} to="/restaurant/1">
                     <Button variant="outline" color="#FFB46D">
                       See Menu
                     </Button>

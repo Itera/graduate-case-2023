@@ -23,7 +23,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Links = ['My Bookings', 'Restaurants', 'Spa', 'Trips'];
+const Links = [['Home', '/'], ['My Bookings', '/mybookings'] , ['Restaurants', '/restaurants'], ['Spa', '/'] , ['Trips', '/']];
 
 const NavLink = (props: Props) => {
   const { children } = props;
@@ -48,7 +48,7 @@ const SimpleNav = () => {
 
   return (
     <>
-      <Box bg={theme.colors['explore-gray'].main} px={4}>
+      <Box bg={theme.colors['explore-blue'].main} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -58,7 +58,7 @@ const SimpleNav = () => {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
+          <ChakraLink as={ReactRouterLink} to="/"><Box textColor={theme.colors['explore-gray'].main}>Explore</Box></ChakraLink>
             <HStack
               as={'nav'}
               spacing={4}
@@ -98,7 +98,8 @@ const SimpleNav = () => {
                 />
               </MenuButton>
               <MenuList>
-                <MenuItem><ChakraLink as={ReactRouterLink} to="/mybookings">
+                <MenuItem>
+                <ChakraLink as={ReactRouterLink} to="/mybookings">
                     My Bookings
                   </ChakraLink></MenuItem>
                 <MenuItem>Spa</MenuItem>
@@ -116,8 +117,8 @@ const SimpleNav = () => {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map(link => (
-                <NavLink key={link}>{link}</NavLink>
+              {Links.map(([title, link]) => (
+                <ChakraLink as={ReactRouterLink} to={link} color={theme.colors['explore-gray'].main} >{title}</ChakraLink>
               ))}
             </Stack>
           </Box>

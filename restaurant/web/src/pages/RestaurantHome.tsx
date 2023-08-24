@@ -16,13 +16,10 @@ const RestaurantHome = () => {
 
         <Box p={4} alignContent="center">
             <Heading as="h1" size="2xl" color={theme.colors["explore-yellow"].main}>
-                    Restaurant Name
+                    The Arctic Penguin
                 </Heading>
                 <Text mt={4} color={theme.colors["explore-yellow"].main}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
-                    mauris vel sapien tincidunt, vel bibendum sapien bibendum. Nulla
-                    facilisi. Sed euismod mauris vel sapien tincidunt, vel bibendum sapien
-                    bibendum. Nulla facilisi.
+                Step aboard our luxurious cruise ship restaurant, The Arctic Penguin, and embark on a culinary journey like no other. Nestled within the heart of the ocean, our restaurant offers a dining experience that combines the thrill of exploration with the elegance of fine cuisine. As you indulge in our delectable dishes, you'll be surrounded by breathtaking panoramic views of the open sea, creating an unforgettable atmosphere for your dining pleasure.
                 </Text>
                 
                 <Link as={ReactLink} to="/restaurant/1/reserve">
