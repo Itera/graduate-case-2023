@@ -10,7 +10,6 @@ import {
   MenuList,
   MenuItem,
   useDisclosure,
-  useColorModeValue,
   Stack,
   Text,
   Link as ChakraLink,
@@ -19,30 +18,10 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import theme from '../theme';
 
-interface Props {
-  children: React.ReactNode;
-}
 
 const Links = [['Home', '/'], ['My Bookings', '/mybookings'] , ['Restaurants', '/restaurants'], ['Spa', '/'] , ['Trips', '/']];
 
-const NavLink = (props: Props) => {
-  const { children } = props;
-  return (
-    <Box
-      as="a"
-      px={2}
-      py={1}
-      rounded={'md'}
-      _hover={{
-        textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700')
-      }}
-      href={'#'}
-    >
-      {children}
-    </Box>
-  );
-};
+
 const SimpleNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
