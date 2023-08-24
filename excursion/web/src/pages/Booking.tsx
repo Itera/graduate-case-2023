@@ -2,17 +2,14 @@
 
 import {
   Box,
-  chakra,
   Container,
   Stack,
-  Text,
   Image,
   Flex,
   VStack,
   Button,
   Heading,
   SimpleGrid,
-  StackDivider,
   useColorModeValue,
   FormControl,
   FormLabel,
@@ -24,8 +21,28 @@ import {
   NumberInputStepper,
   NumberIncrementStepper
 } from '@chakra-ui/react';
+import { useAccount, useMsal } from '@azure/msal-react';
 
 export default function Simple() {
+  const { accounts } = useMsal();
+  const account = useAccount(accounts[0] || {});
+  const CreateBookingButton = async () => {
+    if (!account) return;
+    try {
+      const response = await fetch(import.meta.env.VITE_CMS_BASE_URL + "/bookings", {
+      method: 'POST',
+      headers: {
+        'content-Type': 'application/json'
+      },
+      body: JSON.stringify({guestId: account.localAccountId})
+    });
+    if (response) alert("Booking created!");
+  }
+    catch (e) {
+      alert("Booking unsuccessful");
+      console.log(e);
+    }
+  }
   return (
     <Container maxW={'7xl'} minW={'100%'} backgroundColor={'#091E3B'}>
       <SimpleGrid
@@ -149,6 +166,7 @@ export default function Simple() {
               transform: 'translateY(2px)',
               boxShadow: 'lg'
             }}
+            onClick={() => CreateBookingButton()}//navigate('/booking')}
           >
             CONFIRM BOOKING
           </Button>
@@ -157,3 +175,4 @@ export default function Simple() {
     </Container>
   );
 }
+
