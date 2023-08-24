@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
   Box,
@@ -16,16 +16,20 @@ import {
   useColorModeValue,
   VisuallyHidden,
   List,
-  ListItem,
-} from '@chakra-ui/react'
+  ListItem
+} from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Simple() {
+  const navigate = useNavigate();
+
   return (
-    <Container maxW={'7xl'} minW={"100%"} backgroundColor={'#091E3B'}>
+    <Container maxW={'7xl'} minW={'100%'} backgroundColor={'#091E3B'}>
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: 8, md: 10 }}
-        py={{ base: 18, md: 24 }}>
+        py={{ base: 18, md: 24 }}
+      >
         <Flex>
           <Image
             rounded={'md'}
@@ -45,13 +49,11 @@ export default function Simple() {
               lineHeight={1.1}
               fontWeight={600}
               fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
-              color={'#FFB46D'}>
+              color={'#FFB46D'}
+            >
               RIB TRIP
             </Heading>
-            <Text
-              color={'white'}
-              fontWeight={300}
-              fontSize={'2xl'}>
+            <Text color={'white'} fontWeight={300} fontSize={'2xl'}>
               1000 NOK Adult / 500 NOK Child
             </Text>
           </Box>
@@ -60,13 +62,13 @@ export default function Simple() {
             spacing={{ base: 4, sm: 6 }}
             direction={'column'}
             divider={
-              <StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />
-            }>
+              <StackDivider
+                borderColor={useColorModeValue('gray.200', 'gray.600')}
+              />
+            }
+          >
             <VStack spacing={{ base: 4, sm: 6 }}>
-              <Text
-                color={'#FFB46D'}
-                fontSize={'2xl'}
-                fontWeight={'300'}>
+              <Text color={'#FFB46D'} fontSize={'2xl'} fontWeight={'300'}>
                 Embark on an arctic adventure!
               </Text>
               <Text fontSize={'lg'} color={'white'}>
@@ -79,11 +81,12 @@ export default function Simple() {
                 color={'#FFB46D'}
                 fontWeight={'500'}
                 textTransform={'uppercase'}
-                mb={'4'}>
+                mb={'4'}
+              >
                 Packing List
               </Text>
 
-              <List spacing={2}> 
+              <List spacing={2}>
                 <ListItem color={'white'}>
                   <Text as={'span'} fontWeight={'bold'}>
                     Lunch
@@ -106,17 +109,19 @@ export default function Simple() {
             mt={8}
             size={'lg'}
             py={'7'}
-            bg={useColorModeValue('gray.900', 'gray.50')}
+            bg={'#FFB46D'}
             color={useColorModeValue('white', 'gray.900')}
             textTransform={'uppercase'}
             _hover={{
               transform: 'translateY(2px)',
-              boxShadow: 'lg',
-            }}>
+              boxShadow: 'lg'
+            }}
+            onClick={() => navigate('/booking')}
+          >
             BOOK HERE
           </Button>
         </Stack>
       </SimpleGrid>
     </Container>
-  )
+  );
 }

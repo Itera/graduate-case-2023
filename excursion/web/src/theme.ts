@@ -28,6 +28,9 @@ const theme = {
       800: '#4e2400',
       900: '#1f0a00'
     },
+    'explore-orange': {
+      main: '#FFB46D'
+    },
     'explore-light-blue': {
       main: '#a5bed9',
       50: '#e7f3ff',
