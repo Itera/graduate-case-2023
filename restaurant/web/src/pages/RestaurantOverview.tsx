@@ -56,9 +56,12 @@ const RestaurantOverview = () => {
 
               <CardFooter>
                 <HStack>
-                  <Button variant="outline" color="#FFB46D">
-                    Book
-                  </Button>
+                  <ChakraLink as={ReactRouterLink} to="/restaurant/1/reserve">
+                    <Button variant="outline" color="#FFB46D">
+                      Book
+                    </Button>
+                  </ChakraLink>
+
                   <ChakraLink as={ReactRouterLink} to="/restaurant">
                     <Button variant="outline" color="#FFB46D">
                       See Menu
@@ -100,9 +103,11 @@ const RestaurantOverview = () => {
 
               <CardFooter>
                 <HStack>
-                  <Button variant="outline" color="#FFB46D">
-                    Book
-                  </Button>
+                  <ChakraLink as={ReactRouterLink} to="/restaurant/1/reserve">
+                    <Button variant="outline" color="#FFB46D">
+                      Book
+                    </Button>
+                  </ChakraLink>
                   <ChakraLink as={ReactRouterLink} to="/restaurant">
                     <Button variant="outline" color="#FFB46D">
                       See Menu
@@ -144,9 +149,11 @@ const RestaurantOverview = () => {
 
               <CardFooter>
                 <HStack>
-                  <Button variant="outline" color="#FFB46D">
-                    Book
-                  </Button>
+                <ChakraLink as={ReactRouterLink} to="/restaurant/1/reserve">
+                    <Button variant="outline" color="#FFB46D">
+                      Book
+                    </Button>
+                  </ChakraLink>
                   <ChakraLink as={ReactRouterLink} to="/restaurant">
                     <Button variant="outline" color="#FFB46D">
                       See Menu
@@ -187,9 +194,11 @@ const RestaurantOverview = () => {
 
               <CardFooter>
                 <HStack>
-                  <Button variant="outline" color="#FFB46D">
-                    Book
-                  </Button>
+                <ChakraLink as={ReactRouterLink} to="/restaurant/1/reserve">
+                    <Button variant="outline" color="#FFB46D">
+                      Book
+                    </Button>
+                  </ChakraLink>
                   <ChakraLink as={ReactRouterLink} to="/restaurant">
                     <Button variant="outline" color="#FFB46D">
                       See Menu
