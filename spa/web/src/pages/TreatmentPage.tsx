@@ -89,7 +89,6 @@ const TreatmentPage = () => {
       width="100vw"
       height="100vh"
       alignContent="center"
-      justifyContent="center"
       flexDirection="column"
       backgroundColor="#f0f0f0"
     >
