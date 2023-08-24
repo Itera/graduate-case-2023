@@ -17,7 +17,12 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Textarea
+  Textarea,
+  NumberDecrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper
 } from '@chakra-ui/react';
 
 export default function Simple() {
@@ -43,11 +48,11 @@ export default function Simple() {
         </Flex>
         <Stack
           spacing={{ base: 6, md: 10 }}
-          divider={
-            <StackDivider
-              borderColor={useColorModeValue('gray.200', 'gray.600')}
-            />
-          }
+          // divider={
+          //   <StackDivider
+          //     borderColor={useColorModeValue('gray.200', 'gray.600')}
+          //   />
+          // }
         >
           <Box as={'header'}>
             <Heading
@@ -81,6 +86,42 @@ export default function Simple() {
             <VStack>
               <FormControl>
                 <FormLabel
+                  htmlFor="adults"
+                  fontWeight={'normal'}
+                  color={'#FFB46D'}
+                >
+                  Number of Adults
+                </FormLabel>
+                <NumberInput defaultValue={0} min={1} max={10}>
+                  <NumberInputField backgroundColor={'white'} />
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
+              </FormControl>
+            </VStack>
+            <VStack>
+              <FormControl>
+                <FormLabel
+                  htmlFor="adults"
+                  fontWeight={'normal'}
+                  color={'#FFB46D'}
+                >
+                  Number of Children
+                </FormLabel>
+                <NumberInput defaultValue={0} min={1} max={10}>
+                  <NumberInputField backgroundColor={'white'} />
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
+              </FormControl>
+            </VStack>
+            <VStack>
+              <FormControl>
+                <FormLabel
                   htmlFor="info"
                   fontWeight={'normal'}
                   color={'#FFB46D'}
@@ -109,7 +150,7 @@ export default function Simple() {
               boxShadow: 'lg'
             }}
           >
-            BOOK HERE
+            CONFIRM BOOKING
           </Button>
         </Stack>
       </SimpleGrid>
