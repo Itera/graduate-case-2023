@@ -10,6 +10,7 @@ import {
   Heading,
   Button
 } from '@chakra-ui/react';
+import { MouseEventHandler } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -19,10 +20,10 @@ interface FeatureProps {
   text: string;
   url: string;
   price: string;
+  next: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Feature = ({ title, subtitle, text, url, price }: FeatureProps) => {
-  const navigate = useNavigate();
+const Feature = ({ title, subtitle, text, url, price, next }: FeatureProps) => {
   return (
     <Center py={12}>
       <Box
@@ -97,11 +98,7 @@ const Feature = ({ title, subtitle, text, url, price }: FeatureProps) => {
               {price}
             </Text>
           </Stack>
-          <Button
-            backgroundColor={'#FFB46D'}
-            variant="solid"
-            onClick={() => navigate('/booking')}
-          >
+          <Button backgroundColor={'#FFB46D'} variant="solid" onClick={next}>
             View Here
           </Button>
         </Stack>
@@ -111,6 +108,7 @@ const Feature = ({ title, subtitle, text, url, price }: FeatureProps) => {
 };
 
 export default function SimpleThreeColumns() {
+  const navigate = useNavigate();
   return (
     <Box p={4} backgroundColor={'#091E3B'}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
@@ -122,6 +120,7 @@ export default function SimpleThreeColumns() {
           subtitle={'Embark on an Arctic Adventure:'}
           text={'The Thrilling RIB Boat Excursion'}
           price={'1000 NOK'}
+          next={() => navigate('/rib')}
         />
         <Feature
           url={
@@ -131,6 +130,7 @@ export default function SimpleThreeColumns() {
           subtitle="Experience the Arctic Magic:"
           text={'Dog Sled Excursion'}
           price={'1250 NOK'}
+          next={() => navigate('/dog-sled')}
         />
         <Feature
           url={
@@ -140,6 +140,7 @@ export default function SimpleThreeColumns() {
           subtitle="Experience the Arctic Magic:"
           text={'A Majestic Adventure'}
           price={'800 NOK'}
+          next={() => navigate('/rib')}
         />
       </SimpleGrid>
     </Box>
