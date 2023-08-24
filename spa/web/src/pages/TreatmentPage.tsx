@@ -95,7 +95,6 @@ const TreatmentPage = () => {
           What treatments would you like to book, {account?.name}?
         </Heading>
       </Box>
-      {/* Sauna treatment card */}
       <Box m="0 auto" p={4} marginTop={4}>
       <Accordion>
         <AccordionItem>
