@@ -1,25 +1,16 @@
 import { useAccount, useMsal } from '@azure/msal-react';
-import { Box, Button, Flex, Heading, Text, Tooltip } from '@chakra-ui/react';
+import {Box, Card, CardBody, CardHeader, Flex, Heading, Stack, StackDivider, Text} from '@chakra-ui/react';
 import { Guest, Room } from 'cms-types';
 import { useEffect } from 'react';
 import useAccessToken from '../auth/useAccessToken';
 import { useGet } from '../hooks/useGet';
-import Navbar from '../Navbar';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 
-
-
-
-const Home = () => {
+const ConfirmationPage = () => {
   const { accounts } = useMsal();
   const account = useAccount(accounts[0] || {});
   const accessToken = useAccessToken();
-  const navigate = useNavigate();
-  
-  
-  const navigateToTreatments = () => {
-    navigate('/treatments');;
-  };
+  const location = useLocation();
   
   const {
     data: guest,
@@ -70,8 +61,6 @@ const Home = () => {
   }, [guest, account, accessToken, mutate, isLoading]);
 
   return (
-    <div>
-    <Navbar/>
     <Flex
       width="100vw"
       height="100vh"
@@ -80,68 +69,44 @@ const Home = () => {
       backgroundColor="#f0f0f0"
     >
       <Box m="0 auto">
-        <Heading as="h1" textAlign="center" fontSize="5xl" mt="100px">
-          Welcome, {account?.name}!
-        </Heading>
-        <Text fontSize="xl" textAlign="center" mt="30px">
-          {guest && guest.id == ''
-            ? 'Hang on, we are creating a guest account for you...'
-            : room && room.roomNumber == ''
-            ? 'Hang on, your room is not ready yet...'
-            : 'Your room number is ' + room?.roomNumber}
-        </Text>
-        <Box>
-          {accessToken &&
-            CopyToClipboardButton(
-              accessToken,
-              'Copy access token to clipboard'
-            )}
-        </Box>
-        <Button
-        w="fit-content"
-        p="10"
-        px="100px"
-        colorScheme="blue"
-        borderRadius="10px"
-        m="0 auto"
-        mt="8"
-        fontWeight="bold"
-        color="white"
-        fontSize="l"
-        onClick={navigateToTreatments}
-      >
-        SPA
-      </Button>
+        <Card>
+          <CardHeader>
+            <Heading size='md'>Order Confirmation {room?.roomNumber}</Heading>
+          </CardHeader>
+
+          <CardBody>
+            <Stack divider={<StackDivider />} spacing='4'>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Treatment
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  You have booked a session in {location.state.treatment}
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Place
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  Check out the place of treatment
+                </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Time
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  Your treatment is scheduled to start {location.state.time}
+                </Text>
+              </Box>
+            </Stack>
+          </CardBody>
+        </Card>
       </Box>
     </Flex>
-    </div>
   );
 };
 
-const CopyToClipboardButton = (text: string, label?: string) => {
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(text);
-  };
 
-  return (
-    <Tooltip label={label ?? 'Copy to clipboard'}>
-      <Button
-        w="fit-content"
-        p="4"
-        px="4px"
-        colorScheme="blue"
-        borderRadius="10px"
-        m="0 auto"
-        mt="8"
-        fontWeight="bold"
-        color="white"
-        fontSize="l"
-        onClick={copyToClipboard}
-      >
-        📄
-      </Button>
-    </Tooltip>
-  );
-};
-
-export default Home;
+export default ConfirmationPage;
