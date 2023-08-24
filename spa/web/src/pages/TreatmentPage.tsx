@@ -105,27 +105,27 @@ const TreatmentPage = () => {
           backgroundPosition: 'center',
         }}
         onClick={() => changeTreatment("Sauna")}>
-        <Box as="span" flex='1' textAlign='left' color="white">
+        <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
         Sauna
         </Box>
         <AccordionIcon />
       </AccordionButton>
     </h2>
-    <AccordionPanel pb={4}>
+    <AccordionPanel pb={4} backgroundColor="white">
     Step into the Sauna Sanctuary, a spacious haven that can accommodate up to 12 
     visitors. Allow the dry heat to cleanse your body, ease muscle tension, and promote relaxation.
-    <Box p={1} fontWeight="bold">
-      Price: from $30 (per person)
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Duration: 30 minutes
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Where: Deck 11 - Wellness Deck
-      </Box>
-      <Box fontSize="sm">
-        Please choose a time:
-      </Box>
+    <Box p={1} fontSize='sm'>
+            Location: Deck 11 - Wellness Deck
+          </Box>
+          <Box p={1} fontSize='sm'>
+            Price: $30 (per person)
+          </Box>
+          <Box p={1} fontSize='sm'>
+            Duration: 30 minutes
+          </Box>
+          <Box fontSize="sm">
+          Choose an available time slot in the next 7 days
+          </Box>
       <Select value={selectedTime}
               onChange={(e) => setSelectedTime(e.target.value)} placeholder="Choose time">
         <option value="24 Aug 15:00">24 Aug 15:00</option>
@@ -157,27 +157,27 @@ const TreatmentPage = () => {
           
         }}
         onClick={() => changeTreatment("Mudbath")}>
-        <Box as="span" flex='1' textAlign='left' color="white">
+        <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
           Mudbath
         </Box>
         <AccordionIcon />
       </AccordionButton>
     </h2>
-    <AccordionPanel pb={4}>
+    <AccordionPanel pb={4} backgroundColor="white">
     Experience the ultimate rejuvenation with our signature Mudbath. Indulge in the healing properties of natural mud 
     as it's applied as a mask for your face or as a treatment for your entire body.
-    <Box p={1} fontWeight="bold">
-      Price: $75
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Duration: 30 minutes to 60 minutes
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Where: Deck 12 - Oasis Wing
-      </Box>
-      <Box fontSize="sm">
-        Please choose a time:
-      </Box>
+    <Box p={1} fontSize='sm'>
+          Location: Deck 12 - Oasis Wing
+          </Box>
+          <Box p={1} fontSize='sm'>
+          Price: $75
+          </Box>
+          <Box p={1} fontSize='sm'>
+          Duration: 30 minutes to 60 minutes
+          </Box>
+          <Box fontSize="sm">
+          Choose an available time slot in the next 7 days
+          </Box>
       <Select value={selectedTime}
               onChange={(e) => setSelectedTime(e.target.value)} placeholder="Choose time">
         <option value="24 Aug 15:00">24 Aug 15:00</option>
@@ -211,27 +211,27 @@ const TreatmentPage = () => {
         }}
         
         onClick={() => changeTreatment("Hydrotherapy")}>
-        <Box as="span" flex='1' textAlign='left' color="white">
+        <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
         Hydrotherapy
         </Box>
         <AccordionIcon />
       </AccordionButton >
     </h2>
-    <AccordionPanel pb={4}>
+    <AccordionPanel pb={4} backgroundColor="white">
     Immerse yourself in the therapeutic Hydrotherapy session, where a range of water-based treatments promotes relaxation, eases
     muscle tension, and enhances circulation.
-    <Box p={1} fontWeight="bold">
-      Price: from $60
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Duration: 45 minutes
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Where: Deck 12 - Oasis Wing
-      </Box>
-      <Box fontSize="sm">
-        Please choose a time:
-      </Box>
+    <Box p={1} fontSize='sm'>
+          Location: Deck 12 - Oasis Wing
+            </Box>
+            <Box p={1} fontSize='sm'>
+            Price: $60 
+            </Box>
+            <Box p={1} fontSize='sm'>
+            Duration: 45 minutes
+            </Box>
+            <Box fontSize="sm">
+          Choose an available time slot in the next 7 days
+          </Box>
       <Select value={selectedTime}
               onChange={(e) => setSelectedTime(e.target.value)} placeholder="Choose time">
         <option value="24 Aug 15:00">24 Aug 15:00</option>
@@ -262,27 +262,27 @@ const TreatmentPage = () => {
           backgroundPosition: 'center',
         }}
         onClick={() => changeTreatment("Massage")}>
-        <Box as="span" flex='1' textAlign='left' color="white">
+        <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
         Massage
         </Box>
         <AccordionIcon />
       </AccordionButton>
     </h2>
-    <AccordionPanel pb={4}>
+    <AccordionPanel pb={4} backgroundColor="white">
     Choose between a luxurious Full Body Massage for overall relaxation or a targeted Spot Massage to address 
     specific areas of tension. Our skilled therapists will tailor the treatment to your preferences.
-    <Box p={1} fontWeight="bold">
-      Price: from $85
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Duration: 60 minutes (Full Body), 30 minutes (Spot)
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Where: Deck 11 - Wellness Deck
-      </Box>
-      <Box fontSize="sm">
-        Please choose a time:
-      </Box>
+    <Box p={1} fontSize='sm'>
+        Location: Deck 11 - Wellness Deck
+          </Box>
+          <Box p={1} fontSize='sm'>
+          Price: $85
+          </Box>
+          <Box p={1} fontSize='sm'>
+          Duration: 60 minutes (Full Body), 30 minutes (Spot)
+          </Box>
+          <Box fontSize="sm">
+          Choose an available time slot in the next 7 days
+          </Box>
       <Select value={selectedTime}
               onChange={(e) => setSelectedTime(e.target.value)} placeholder="Choose time">
         <option value="24 Aug 15:00">24 Aug 15:00</option>
@@ -313,27 +313,27 @@ const TreatmentPage = () => {
           backgroundPosition: 'center',
         }}
         onClick={() => changeTreatment("Acupuncture")}>
-        <Box as="span" flex='1' textAlign='left' color="white">
+        <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
         Acupuncture
         </Box>
         <AccordionIcon />
       </AccordionButton>
     </h2>
-    <AccordionPanel pb={4}>
+    <AccordionPanel pb={4} backgroundColor="white">
     Experience the ancient art of Acupuncture, a practice that stimulates specific points on the body to 
     promote energy flow and balance. This holistic therapy offers numerous potential benefits.
-    <Box p={1} fontWeight="bold">
-      Price: from $70
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Duration: 60 minutes
-      </Box>
-      <Box p={1} fontWeight="bold">
-      Where: Deck 7 - Tranquility Plaza
-      </Box>
-      <Box fontSize="sm">
-        Please choose a time:
-      </Box>
+    <Box p={1} fontSize='sm'>
+        Location: Deck 7 - Tranquility Plaza
+          </Box>
+          <Box p={1} fontSize='sm'>
+          Price: $70
+          </Box>
+          <Box p={1} fontSize='sm'>
+          Duration: 60 minutes 
+          </Box>
+          <Box fontSize="sm">
+          Choose an available time slot in the next 7 days
+          </Box>
       <Select value={selectedTime}
               onChange={(e) => setSelectedTime(e.target.value)} placeholder="Choose time">
         <option value="24 Aug 15:00">24 Aug 15:00</option>
@@ -359,7 +359,7 @@ const TreatmentPage = () => {
         </Accordion>
 
   </Box>
-    </Flex>
+  </Flex>
   );
 };
 
