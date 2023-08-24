@@ -1,10 +1,11 @@
 import { useAccount, useMsal } from '@azure/msal-react';
-import { Box, Button, Flex, Heading, Link, Text, Tooltip } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text} from '@chakra-ui/react';
 import { Guest, Room } from 'cms-types';
 import { useEffect } from 'react';
 import useAccessToken from '../auth/useAccessToken';
 import { useGet } from '../hooks/useGet';
-import { Link as ReactLink } from 'react-router-dom';
+import theme from '../theme';
+// import { Link as ReactLink } from 'react-router-dom';
 
 const Home = () => {  
   const { accounts } = useMsal();
@@ -65,58 +66,57 @@ const Home = () => {
       height="100vh"
       alignContent="center"
       justifyContent="center"
-      backgroundColor="#f0f0f0"
+      backgroundColor={theme.colors['explore-blue'].main}
     >
       <Box m="0 auto">
-        <Heading as="h1" textAlign="center" fontSize="5xl" mt="100px">
+        <Heading as="h1" textAlign="center" fontSize="5xl" mt="100px" color='white'>
           Welcome, {account?.name}!
         </Heading>
-        <Text fontSize="xl" textAlign="center" mt="30px">
+        <Text fontSize="xl" textAlign="center" mt="30px" color='white'>
           {guest && guest.id == ''
             ? 'Hang on, we are creating a guest account for you...'
             : room && room.roomNumber == ''
             ? 'Hang on, your room is not ready yet...'
             : 'Your room number is ' + room?.roomNumber}
         </Text>
-        <Box>
+        {/* <Box>
           {accessToken &&
             CopyToClipboardButton(
               accessToken,
               'Copy access token to clipboard'
             )}
-        </Box>
-        <Link as={ReactLink} to="/restaurant"><Button variant='solid' colorScheme='blue'> Restaurant</Button></Link>
+        </Box> */}
       </Box>
     </Flex>
   );
 };
 
-const CopyToClipboardButton = (text: string, label?: string) => {
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(text);
-  };
+// const CopyToClipboardButton = (text: string, label?: string) => {
+//   const copyToClipboard = () => {
+//     navigator.clipboard.writeText(text);
+//   };
 
-  return (
+//   return (
 
-    <Tooltip label={label ?? 'Copy to clipboard'}>
+//     <Tooltip label={label ?? 'Copy to clipboard'}>
 
-      <Button
-        w="fit-content"
-        p="4"
-        px="4px"
-        colorScheme="blue"
-        borderRadius="10px"
-        m="0 auto"
-        mt="8"
-        fontWeight="bold"
-        color="white"
-        fontSize="l"
-        onClick={copyToClipboard}
-        >
-        📄
-      </Button>
-    </Tooltip>
-  );
-};
+//       <Button
+//         w="fit-content"
+//         p="4"
+//         px="4px"
+//         colorScheme="blue"
+//         borderRadius="10px"
+//         m="0 auto"
+//         mt="8"
+//         fontWeight="bold"
+//         color="white"
+//         fontSize="l"
+//         onClick={copyToClipboard}
+//         >
+//         📄
+//       </Button>
+//     </Tooltip>
+//   );
+// };
 
 export default Home;
