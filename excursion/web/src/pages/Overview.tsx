@@ -11,6 +11,8 @@ import {
   Button
 } from '@chakra-ui/react';
 
+import { useNavigate } from 'react-router-dom';
+
 interface FeatureProps {
   title: string;
   subtitle: string;
@@ -20,6 +22,7 @@ interface FeatureProps {
 }
 
 const Feature = ({ title, subtitle, text, url, price }: FeatureProps) => {
+  const navigate = useNavigate();
   return (
     <Center py={12}>
       <Box
@@ -94,7 +97,11 @@ const Feature = ({ title, subtitle, text, url, price }: FeatureProps) => {
               {price}
             </Text>
           </Stack>
-          <Button backgroundColor={'#FFB46D'} variant="solid">
+          <Button
+            backgroundColor={'#FFB46D'}
+            variant="solid"
+            onClick={() => navigate('/booking')}
+          >
             View Here
           </Button>
         </Stack>
@@ -132,7 +139,7 @@ export default function SimpleThreeColumns() {
           title={'Whale Safari'}
           subtitle="Experience the Arctic Magic:"
           text={'A Majestic Adventure'}
-          price={'800'}
+          price={'800 NOK'}
         />
       </SimpleGrid>
     </Box>
