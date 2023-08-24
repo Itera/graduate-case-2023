@@ -9,7 +9,8 @@ import {
   Button,
   Heading,
   Link as ChakraLink,
-  HStack
+  HStack,
+  Badge
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import theme from '../theme';
@@ -63,6 +64,8 @@ const RestaurantOverview = () => {
                       See Menu
                     </Button>
                   </ChakraLink>
+
+                  <Badge colorScheme='red'>Low Availability</Badge>
                 </HStack>
               </CardFooter>
             </Stack>
@@ -105,6 +108,8 @@ const RestaurantOverview = () => {
                       See Menu
                     </Button>
                   </ChakraLink>
+
+                  <Badge colorScheme='green'>High Availability</Badge>
                 </HStack>
               </CardFooter>
             </Stack>
@@ -147,6 +152,7 @@ const RestaurantOverview = () => {
                       See Menu
                     </Button>
                   </ChakraLink>
+                  <Badge colorScheme='green'>High Availability</Badge>
                 </HStack>
               </CardFooter>
             </Stack>
@@ -189,6 +195,8 @@ const RestaurantOverview = () => {
                       See Menu
                     </Button>
                   </ChakraLink>
+
+                  <Badge colorScheme='orange'>Medium Availability</Badge>
                 </HStack>
               </CardFooter>
             </Stack>
