@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link as ReactRouterLink } from 'react-router-dom';
+import theme from '../theme';
 
 interface Props {
   children: React.ReactNode;
@@ -47,7 +48,7 @@ const SimpleNav = () => {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box bg={theme.colors['explore-gray'].main} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -64,12 +65,16 @@ const SimpleNav = () => {
               display={{ base: 'none', md: 'flex' }}
             >
               <Text>
-              <ChakraLink as={ReactRouterLink} to="/">
-                  Home
+                <ChakraLink as={ReactRouterLink} to="/">
+                    Home
                 </ChakraLink>
+              </Text>
+              <Text>
                 <ChakraLink as={ReactRouterLink} to="/mybookings">
                   My Bookings
                 </ChakraLink>
+              </Text>
+              <Text>
                 <ChakraLink as={ReactRouterLink} to="/restaurants">
                   Restaurants
                 </ChakraLink>
