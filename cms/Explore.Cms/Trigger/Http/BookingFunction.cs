@@ -20,10 +20,15 @@ namespace Explore.Cms.Trigger.Http;
 public class BookingFunction
 {
     private readonly IBookingService BookingService;
-
-    public BookingFunction(IBookingService bookingService)
+    private readonly ITransactionService TransactionService;
+    private readonly IGuestService GuestService;
+    private readonly IRoomService RoomService;
+    public BookingFunction(IBookingService bookingService, ITransactionService transactionService, IGuestService guestService, IRoomService roomService)
     {
         BookingService = bookingService;
+        TransactionService = transactionService;
+        GuestService = guestService;
+        RoomService = roomService;
     }
 
     [FunctionName("GetBooking")]
@@ -74,6 +79,19 @@ public class BookingFunction
         
         var createdBooking = await BookingService.FindOneByIdAsync(booking.Id);
         if (createdBooking.Id == Guid.Empty) return new ConflictObjectResult("Could not create booking");
+
+        var guestDoc = await GuestService.FindOneByIdAsync(createdBooking.GuestId);
+        var roomId = await RoomService.FindOneByIdAsync(guestDoc.RoomId);
+        var utransaction = new GuestTransaction(){
+            Amount = new decimal(2499.90),
+            Description = "Real transaction for event",
+            GuestId = guestDoc.Id,
+            RoomId = roomId.Id,
+        };
+        await TransactionService.AddOneAsync(utransaction);
+
+        await RoomService.AddTransactionToRoom(roomId.Id, utransaction.Id);
+
 
         return new CreatedResult($"guest/{createdBooking.Id}", createdBooking);
     }

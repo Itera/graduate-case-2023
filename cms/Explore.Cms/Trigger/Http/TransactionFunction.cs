@@ -71,7 +71,7 @@ public class TransactionFunction
         if (!validatedRequest.IsValid) return validatedRequest.ToBadRequest();
 
         var transaction = validatedRequest.Value;
-
+        transaction.Id = Guid.NewGuid();
         var room = await _roomService.FindOneByIdAsync(transaction.RoomId);
         if (room.Id == Guid.Empty) return new NotFoundObjectResult("Room does not exist.");
 
