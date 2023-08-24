@@ -138,14 +138,17 @@ const TreatmentPage = () => {
         <option value="24 Aug 16:30">24 Aug 16:30</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
-      p="7"
+      p="1"
       px="50px"
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}
@@ -190,6 +193,9 @@ const TreatmentPage = () => {
         <option value="24 Aug 18:00">24 Aug 18:00</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
       p="7"
@@ -197,7 +203,7 @@ const TreatmentPage = () => {
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}
@@ -244,6 +250,9 @@ const TreatmentPage = () => {
         <option value="24 Aug 17:15">24 Aug 17:15</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
       p="7"
@@ -251,7 +260,7 @@ const TreatmentPage = () => {
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}
@@ -295,6 +304,9 @@ const TreatmentPage = () => {
         <option value="24 Aug 18:00">24 Aug 18:00</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
       p="7"
@@ -302,7 +314,7 @@ const TreatmentPage = () => {
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}
@@ -346,6 +358,9 @@ const TreatmentPage = () => {
         <option value="24 Aug 18:00">24 Aug 18:00</option>
       </Select>
       <Box p={2}></Box>
+      <Box fontSize="sm" fontStyle={"italic"}>
+        The cost will be added to your room bill
+      </Box>
       <Button
       w="fit-content"
       p="7"
@@ -353,7 +368,7 @@ const TreatmentPage = () => {
       colorScheme="explore-blue"
       borderRadius="10px"
       m="0 auto"
-      mt="8"
+      mt="1"
       fontWeight="bold"
       fontSize="l"
       onClick={navigateToConfirmation}
