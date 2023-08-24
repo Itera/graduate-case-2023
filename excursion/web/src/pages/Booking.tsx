@@ -142,7 +142,7 @@ export default function Simple() {
             mt={8}
             size={'lg'}
             py={'7'}
-            bg={useColorModeValue('gray.900', 'gray.50')}
+            bg={'#FFB46D'}
             color={useColorModeValue('white', 'gray.900')}
             textTransform={'uppercase'}
             _hover={{
