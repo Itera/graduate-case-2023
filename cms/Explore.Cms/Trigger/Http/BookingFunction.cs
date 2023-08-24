@@ -13,24 +13,25 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
+using Explore.Cms.Configuration.OpenApiExamples.Booking;
 
 namespace Explore.Cms.Trigger.Http;
 
-public class TransactionFunction
+public class BookingFunction
 {
-    private readonly ITransactionService _transactionService;
-    private readonly IRoomService _roomService;
-    private readonly ILogger<TransactionFunction> _logger;
-
-    public TransactionFunction(ITransactionService transactionService, IRoomService roomService,
-        ILogger<TransactionFunction> logger)
+    private readonly IBookingService BookingService;
+    private readonly ITransactionService TransactionService;
+    private readonly IGuestService GuestService;
+    private readonly IRoomService RoomService;
+    public BookingFunction(IBookingService bookingService, ITransactionService transactionService, IGuestService guestService, IRoomService roomService)
     {
-        _transactionService = transactionService;
-        _roomService = roomService;
-        _logger = logger;
+        BookingService = bookingService;
+        TransactionService = transactionService;
+        GuestService = guestService;
+        RoomService = roomService;
     }
 
-    [FunctionName("GetTransaction")]
+    [FunctionName("GetBooking")]
     [OpenApiOperation("GetTransaction", "Transactions", Summary = "Get one transaction", Description = "Get one transaction")]
     [OpenApiParameter("id", Description = "Id of the transaction", In = ParameterLocation.Path, Required = true,
         Type = typeof(Guid))]
@@ -40,65 +41,58 @@ public class TransactionFunction
         Description = "Bad request response when the id is not a valid Guid")]
     [OpenApiResponseWithoutBody(HttpStatusCode.NotFound, Summary = "The not found response",
         Description = "The response when the transaction is not found")]
-    public async Task<IActionResult> GetTransaction(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "transactions/{id}")]
+    public async Task<IActionResult> GetBooking(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "bookings/{id}")]
         HttpRequest req, string id)
     {
         var parseResult = Guid.TryParse(id, out var guid);
         if (!parseResult) return new BadRequestObjectResult("Invalid id");
         
-        var transaction = await _transactionService.FindOneByIdAsync(guid);
+        var transaction = await BookingService.FindOneByIdAsync(guid);
 
         return transaction.Id == Guid.Empty ? new NotFoundResult() : new OkObjectResult(transaction);
     }
     
 
-    [FunctionName("CreateTransaction")]
+    [FunctionName("CreateBooking")]
     [OpenApiOperation("CreateTransaction", "Transactions", Summary = "Create one transaction", Description = "Create one transaction")]
-    [OpenApiRequestBody("application/json", typeof(GuestTransaction), Example = typeof(CreateTransactionRequestExample))]
+    [OpenApiRequestBody("application/json", typeof(Booking), Example = typeof(CreateBookingRequestExample))]
     [OpenApiResponseWithBody(HttpStatusCode.Created, "application/json", typeof(GuestTransaction), Summary = "Ok response",
         Description = "This returns the created transaction", Example = typeof(TransactionResponseExample))]
     [OpenApiResponseWithoutBody(HttpStatusCode.BadRequest, Summary = "Bad request response",
         Description = "Bad request response when the request is invalid")]
     [OpenApiResponseWithoutBody(HttpStatusCode.Conflict, Summary = "Conflict response",
         Description = "Conflict response when the transaction could not be created")]
-    public async Task<IActionResult> CreateTransaction(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "transactions")]
-        HttpRequest req)
+    public async Task<IActionResult> CreateBooking(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "bookings")] HttpRequest req)
     {
-        var validatedRequest =
-            await HttpRequestHelpers.ValidateRequest<GuestTransaction, CreateTransactionValidator>(req);
-        if (!validatedRequest.IsValid) return validatedRequest.ToBadRequest();
-
-        var transaction = validatedRequest.Value;
-        transaction.Id = Guid.NewGuid();
-        var room = await _roomService.FindOneByIdAsync(transaction.RoomId);
-        if (room.Id == Guid.Empty) return new NotFoundObjectResult("Room does not exist.");
-
+        var booking = await HttpRequestHelpers.GetJsonBody<Booking>(req);
 
         try
         {
-            await _roomService.AddTransactionToRoom(room.Id, transaction.Id);
+            await BookingService.AddOneAsync(booking);
         }
         catch (MongoWriteException e)
         {
-            _logger.LogError(e, "Could not add transaction to room {RoomId}", room.Id);
-            return new ConflictObjectResult($"Could not add transaction to room {room.Id}. Reason: {e.WriteError.Category}");
-        }
-
-        try
-        {
-            await _transactionService.AddOneAsync(transaction);
-        }
-        catch (MongoWriteException e)
-        {
-            _logger.LogError(e, "Could not create transaction");
-            return new ConflictObjectResult($"Could not create transaction. Reason: {e.WriteError.Category}");
+            return new ConflictObjectResult($"Could not create booking. Reason: {e.WriteError.Category}");
         }
         
-        var createdTransaction = await _transactionService.FindOneByIdAsync(transaction.Id);
-        if (createdTransaction.Id == Guid.Empty) return new ConflictObjectResult("Could not create transaction");
+        var createdBooking = await BookingService.FindOneByIdAsync(booking.Id);
+        if (createdBooking.Id == Guid.Empty) return new ConflictObjectResult("Could not create booking");
 
-        return new CreatedResult($"guest/{createdTransaction.Id}", createdTransaction);
+        var guestDoc = await GuestService.FindOneByIdAsync(createdBooking.GuestId);
+        var roomId = await RoomService.FindOneByIdAsync(guestDoc.RoomId);
+        var utransaction = new GuestTransaction(){
+            Amount = new decimal(2499.90),
+            Description = "Real transaction for event",
+            GuestId = guestDoc.Id,
+            RoomId = roomId.Id,
+        };
+        await TransactionService.AddOneAsync(utransaction);
+
+        await RoomService.AddTransactionToRoom(roomId.Id, utransaction.Id);
+
+
+        return new CreatedResult($"guest/{createdBooking.Id}", createdBooking);
     }
 }

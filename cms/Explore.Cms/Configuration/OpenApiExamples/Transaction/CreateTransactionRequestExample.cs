@@ -15,8 +15,8 @@ public class CreateTransactionRequestExample : OpenApiExample<CreateTransactionR
             {
                 Amount = new decimal(100.99),
                 Description = "Example transaction",
-                GuestId = ObjectId.GenerateNewId(),
-                RoomId = ObjectId.GenerateNewId(),
+                GuestId = Guid.NewGuid(),
+                RoomId = Guid.NewGuid(),
             }, namingStrategy));
         return this;
     }
@@ -26,7 +26,7 @@ public class CreateTransactionRequest
 {
     public decimal Amount { get; set; }
     public string Description { get; set; } = string.Empty;
-    public ObjectId RoomId { get; init; } = ObjectId.Empty;
-    public ObjectId GuestId { get; init; } = ObjectId.Empty;
+    public Guid RoomId { get; init; } = Guid.Empty;
+    public Guid GuestId { get; init; } = Guid.Empty;
     public DateTime TransactionDate { get; } = DateTime.Now;
 }
