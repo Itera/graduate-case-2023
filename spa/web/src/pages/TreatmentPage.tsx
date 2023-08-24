@@ -18,17 +18,19 @@ const TreatmentPage = () => {
   const [isOpen] = useState(false);
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedTreatment, setSelectedTreatment] = useState('');
+  const [selectedPlace, setSelectedPlace] = useState('');
   const navigate = useNavigate();
 
   const navigateToConfirmation = () => {
     // Check if time and treatment is selected
     if (selectedTime != "" && selectedTreatment != "") {
-      navigate('/confirmation', {state: {time: selectedTime, treatment: selectedTreatment}});
+      navigate('/confirmation', {state: {time: selectedTime, treatment: selectedTreatment, place: selectedPlace}});
     }
   };
 
-  const changeTreatment = (treatment: string) => {
+  const changeTreatment = (treatment: string, place: string) => {
     setSelectedTime('')
+    setSelectedPlace(place)
     setSelectedTreatment(treatment);
   };
 
@@ -104,7 +106,7 @@ const TreatmentPage = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-        onClick={() => changeTreatment("Sauna")}>
+        onClick={() => changeTreatment("Sauna", "Deck 11 - Wellness Deck")}>
         <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
         Sauna
         </Box>
@@ -156,7 +158,7 @@ const TreatmentPage = () => {
           backgroundPosition: 'center',
           
         }}
-        onClick={() => changeTreatment("Mudbath")}>
+        onClick={() => changeTreatment("Mudbath", "Deck 12 - Oasis Wing")}>
         <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
           Mudbath
         </Box>
@@ -210,7 +212,7 @@ const TreatmentPage = () => {
           backgroundPosition: 'center',
         }}
         
-        onClick={() => changeTreatment("Hydrotherapy")}>
+        onClick={() => changeTreatment("Hydrotherapy", "Deck 12 - Oasis Wing")}>
         <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
         Hydrotherapy
         </Box>
@@ -261,7 +263,7 @@ const TreatmentPage = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-        onClick={() => changeTreatment("Massage")}>
+        onClick={() => changeTreatment("Massage", "Deck 11 - Wellness Deck")}>
         <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
         Massage
         </Box>
@@ -312,7 +314,7 @@ const TreatmentPage = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-        onClick={() => changeTreatment("Acupuncture")}>
+        onClick={() => changeTreatment("Acupuncture", "Deck 7 - Tranquility Plaza")}>
         <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
         Acupuncture
         </Box>
