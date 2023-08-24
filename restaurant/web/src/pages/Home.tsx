@@ -1,5 +1,5 @@
 import { useAccount, useMsal } from '@azure/msal-react';
-import { Box, Button, Divider, Flex, Heading, Image, Text, VStack} from '@chakra-ui/react';
+import { Box, Button, Heading, Image, Text, VStack} from '@chakra-ui/react';
 import { Guest, Room } from 'cms-types';
 import { useEffect } from 'react';
 import useAccessToken from '../auth/useAccessToken';
