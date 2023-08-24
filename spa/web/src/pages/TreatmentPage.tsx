@@ -107,6 +107,8 @@ const TreatmentPage = () => {
           backgroundImage: `url(${saunaImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          minWidth: "95vw",
+          justifyContent: "center"
         }}
         onClick={() => changeTreatment("Sauna", "Deck 11 - Wellness Deck")}>
         <Box as="span" flex='1' textAlign='left' fontSize='2xl'color="white">
