@@ -14,7 +14,6 @@ import {
   Th,
   Thead,
   Tr,
-  TableContainer,
 } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 import bookingsData from '../dataMocks/bookings.json';
