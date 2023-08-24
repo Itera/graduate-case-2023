@@ -92,7 +92,7 @@ const ConfirmationPage = () => {
                   Place
                 </Heading>
                 <Text pt='2' fontSize='sm'>
-                  Check out the place of treatment
+                  Check out the place of treatment: {location.state.place}
                 </Text>
               </Box>
               <Box>
