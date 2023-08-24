@@ -71,7 +71,7 @@ const ConfirmationPage = () => {
       <Box m="0 auto">
         <Card>
           <CardHeader>
-            <Heading size='md'>Order Confirmation {room?.roomNumber}</Heading>
+            <Heading size='md'>Order Confirmation for room {room?.roomNumber}</Heading>
           </CardHeader>
 
           <CardBody>
@@ -86,19 +86,22 @@ const ConfirmationPage = () => {
               </Box>
               <Box>
                 <Heading size='xs' textTransform='uppercase'>
-                  Place
-                </Heading>
-                <Text pt='2' fontSize='sm'>
-                  Check out the place of treatment
-                </Text>
-              </Box>
-              <Box>
-                <Heading size='xs' textTransform='uppercase'>
                   Time
                 </Heading>
                 <Text pt='2' fontSize='sm'>
                   Your treatment is scheduled to start {location.state.time}
                 </Text>
+              </Box>
+              <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                  Place
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                  {location.state.treatment} is located in {location.state.place}
+                </Text>
+              </Box>
+              <Box>
+                Order confirmation has been sent to {account?.username}
               </Box>
             </Stack>
           </CardBody>
