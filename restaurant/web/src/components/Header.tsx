@@ -10,7 +10,6 @@ import {
   MenuList,
   MenuItem,
   useDisclosure,
-  useColorModeValue,
   Stack,
   Text,
   Link as ChakraLink,
@@ -19,36 +18,16 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import theme from '../theme';
 
-interface Props {
-  children: React.ReactNode;
-}
 
-const Links = ['My Bookings', 'Restaurants', 'Spa', 'Trips'];
+const Links = [['Home', '/'], ['My Bookings', '/mybookings'] , ['Restaurants', '/restaurants'], ['Spa', '/'] , ['Trips', '/']];
 
-const NavLink = (props: Props) => {
-  const { children } = props;
-  return (
-    <Box
-      as="a"
-      px={2}
-      py={1}
-      rounded={'md'}
-      _hover={{
-        textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700')
-      }}
-      href={'#'}
-    >
-      {children}
-    </Box>
-  );
-};
+
 const SimpleNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Box bg={theme.colors['explore-gray'].main} px={4}>
+      <Box bg={theme.colors['explore-blue'].main} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -58,7 +37,7 @@ const SimpleNav = () => {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
+          <ChakraLink as={ReactRouterLink} to="/"><Box textColor={theme.colors['explore-gray'].main}>Explore</Box></ChakraLink>
             <HStack
               as={'nav'}
               spacing={4}
@@ -98,7 +77,8 @@ const SimpleNav = () => {
                 />
               </MenuButton>
               <MenuList>
-                <MenuItem><ChakraLink as={ReactRouterLink} to="/mybookings">
+                <MenuItem>
+                <ChakraLink as={ReactRouterLink} to="/mybookings">
                     My Bookings
                   </ChakraLink></MenuItem>
                 <MenuItem>Spa</MenuItem>
@@ -116,8 +96,8 @@ const SimpleNav = () => {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map(link => (
-                <NavLink key={link}>{link}</NavLink>
+              {Links.map(([title, link]) => (
+                <ChakraLink as={ReactRouterLink} to={link} color={theme.colors['explore-gray'].main} >{title}</ChakraLink>
               ))}
             </Stack>
           </Box>

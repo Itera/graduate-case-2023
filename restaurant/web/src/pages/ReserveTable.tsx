@@ -74,7 +74,7 @@ const ReserveTable = () => {
             Suggested restaurant with available seats:
         </Text>
 
-        <Link as={ReactLink} to="/restaurant" marginTop='0px' paddingTop='0px'>
+        <Link as={ReactLink} to="/restaurant/1" marginTop='0px' paddingTop='0px'>
           <Card
             p={6}
             m={8}
@@ -85,18 +85,16 @@ const ReserveTable = () => {
             <Image
               objectFit="cover"
               maxW={{ base: '100%', sm: '200px' }}
-              src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+              src="https://imgix.swoop-arctic.com/SIL_5_SIL_RTD_Silver-Explorer_Dining-1.jpg?auto=format,enhance,compress&fit=crop&crop=entropy,faces,focalpoint&w=580&h=480&q=40"
               alt="Caffe Latte"
             />
 
             <Stack>
               <CardBody>
-                <Heading size="md">The Arctic Penguin</Heading>
+                <Heading size="md">The South Pole</Heading>
 
                 <Text py="2">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-                  recusandae neque, velit praesentium numquam ducimus totam
-                  atque illo nam qui!
+                Inspired by the rich culinary traditions of South America, Africa, Australia, and New Zealand, our talented team of chefs have meticulously crafted a menu that showcases the best of southern cuisine. From the succulent flavors of Argentinean steaks to the bold spices of African stews, each dish is a testament to the diverse flavors and cooking techniques that define these distinct cultures.
                 </Text>
               </CardBody>
 
@@ -130,7 +128,7 @@ const ReserveTable = () => {
   }
 
   return (
-    <Box bgColor={theme.colors["explore-blue"].main} padding="16px">
+    <Box bgColor={theme.colors["explore-blue"].main} padding="16px 16px 500px 16px">
       <VStack spacing={4}>
         <FormControl id="name">
           <FormLabel color={theme.colors["explore-yellow"].main}>Name</FormLabel>
@@ -177,6 +175,7 @@ const ReserveTable = () => {
             <Text color="red.500">We are fully booked.</Text>
             <Button
               colorScheme="yellow"
+              bgColor={theme.colors["explore-yellow"].main}
               onClick={() => {
                 setIsWaitlist(true);
                 handleSubmit();
