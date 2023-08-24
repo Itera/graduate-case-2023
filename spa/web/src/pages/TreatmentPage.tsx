@@ -100,7 +100,7 @@ const TreatmentPage = () => {
         </Heading>
       </Box>
       <Box m="0 auto" p={4} marginTop={4}>
-      <Accordion>
+      <Accordion allowToggle>
         <AccordionItem>
     <h2>
       <AccordionButton style={{
